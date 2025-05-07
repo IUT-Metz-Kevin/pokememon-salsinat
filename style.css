@@ -1,0 +1,70 @@
+.box {
+  position: relative;
+}
+
+.box .bush {
+  width: 100%;
+  height: auto;
+  animation: bounce;
+  animation-duration: 0.7s;
+}
+
+.box .bush:hover {
+  cursor: pointer;
+  animation: headShake;
+  animation-duration: 0.7s;
+}
+
+.box .pokemon,
+.box .pokeball {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: auto;
+  height: 100%;
+}
+
+.box .pokeball {
+  height: 60%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+
+#grille_de_jeu {
+  row-gap: 50px;
+}
+
+#rejouer {
+  display: none;
+}
+
+#sidebar {
+  position: fixed;
+  padding-left: 18px;
+  top: 9rem;
+  left: 0;
+  height: 100vh;
+  width: 200px;
+}
+
+#sidebar .liste_pokemons_captures {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  min-height: 60px;
+}
+
+.box img.pokeball,
+.box img.bush,
+.box img.pokemon {
+  height: 100px;
+  width: auto;
+}
+
+#sidebar .liste_pokemons_captures img {
+  width: 30%;
+  height: auto;
+}
