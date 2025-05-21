@@ -37,7 +37,6 @@ for (let i=0; i<grilleDeJeu.children.length/2; i++) {
 fisherYatesShuffle(pokemonsCaches);
 
 for (let p of [...sideBar.children].filter(c => c.className === "liste_pokemons_captures")[0].children) {
-    console.log(p);
     p.remove()
 }
 
@@ -74,7 +73,6 @@ grilleDeJeu.addEventListener("click", async function () {
             const pokemon1 = pokemons[0].src.split("/").pop().split(".")[0];
             const pokemon2 = pokemons[1].src.split("/").pop().split(".")[0];
             if (pokemon1 == pokemon2) {
-                console.log("fvztnb");
                 [...sideBar.children]
                 .filter(c => c.className === "liste_pokemons_captures")[0]
                 .appendChild(pokemons[0].cloneNode(true));
@@ -85,14 +83,15 @@ grilleDeJeu.addEventListener("click", async function () {
                     p.parentElement.appendChild(pokeball)
                 }
                 if ([...grilleDeJeu.children].filter(c => c.children[0].className === "bush").length === 0) {
-                    if (parseInt(record.innerText) < parseInt(coups.innerText)){
+                    if (parseInt(record.innerText) > parseInt(coups.innerText) || record.innerText == "0"){
                         record.innerText = coups.innerText;
                     }
                     await new Promise(r => setTimeout(r, 1000));
-                    for (let p of [...sideBar.children].filter(c => c.className === "liste_pokemons_captures")) {
+                    for (let p of [...sideBar.children].filter(c => c.className === "liste_pokemons_captures")[0].children) {
+                        console.log(p,[...sideBar.children].filter(c => c.className === "liste_pokemons_captures")[0].children);
                         p.remove()
                     }
-                    for (let img of [...grilleDeJeu.children].map(c => c.children[0])) {
+                    for (let img of [...[...grilleDeJeu.children].map(c => c.children[0])]) {
                         img.src = "assets/bush.webp"
                         img.className = "bush"
                         img.parentElement.children[1].remove();
